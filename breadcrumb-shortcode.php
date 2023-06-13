@@ -102,4 +102,16 @@ class Breadcrumb {
 $breadcrumb = new Breadcrumb();
 add_action('init', array($breadcrumb, 'init'));
 
+// Load the Breadcrumb_Widget class
+function load_breadcrumb_widget() {
+    require_once 'breadcrumb-widget.php';
+}
+add_action('widgets_init', 'load_breadcrumb_widget');
+
+// Register the Breadcrumb Widget
+function register_breadcrumb_widget() {
+    register_widget('Breadcrumb_Widget');
+}
+add_action('widgets_init', 'register_breadcrumb_widget');
+
 include( __DIR__ . '/breadcrumb-divi.php' );
