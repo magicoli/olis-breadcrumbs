@@ -48,5 +48,3 @@ Answer to foo bar dilemma.
 
 = 0.1 =
 * created [breadcrumbs] shortcode
-* added widget
-* added divi module

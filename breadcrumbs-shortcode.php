@@ -17,7 +17,7 @@ class Breadcrumbs {
 	private $counter = 0;
 
 	public function init() {
-		( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1' );
+		( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1');
 		add_shortcode( 'breadcrumbs', array( $this, 'breadcrumbs_shortcode' ) );
 	}
 
