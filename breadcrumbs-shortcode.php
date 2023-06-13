@@ -48,11 +48,13 @@ class Breadcrumbs {
 			// Get the post categories
 			$categories = get_the_category( $post->ID );
 
+			$debug = [];
 			// Add the post category links if available
 			if ( $categories ) {
 				foreach ( $categories as $category ) {
 					$breadcrumbs_link  = get_category_link( $category->term_id );
 					$breadcrumbs_title = $category->name;
+					$debug[] = $category->name;
 
 					// Check if the category has parent categories
 					if ( $category->parent ) {
@@ -62,6 +64,8 @@ class Breadcrumbs {
 					$breadcrumbs .= '<li class="breadcrumb-parent" style="display: inline;"><a href="' . esc_url( $breadcrumbs_link ) . '">' . esc_html( $breadcrumbs_title ) . '</a></li>';
 				}
 			}
+
+			error_log(print_r($debug, true));
 
 			// Add the current post title if exclude-title is true
 			if ( $atts['exclude-title'] !== 'true' ) {
@@ -105,16 +109,23 @@ class Breadcrumbs {
 $breadcrumbs = new Breadcrumbs();
 add_action( 'init', array( $breadcrumbs, 'init' ) );
 
-// Load the Breadcrumbs_Widget class
-function load_breadcrumbs_widget() {
-	require_once 'breadcrumbs-widget.php';
-}
-add_action( 'widgets_init', 'load_breadcrumbs_widget' );
 
-// Register the Breadcrumbs Widget
-function register_breadcrumbs_widget() {
-	register_widget( 'Breadcrumbs_Widget' );
-}
-add_action( 'widgets_init', 'register_breadcrumbs_widget' );
-
-require __DIR__ . '/breadcrumbs-divi.php';
+// /**
+//  * Load the Breadcrumbs_Widget class
+//  * @return void
+//  */
+// function load_breadcrumbs_widget() {
+// 	require_once 'breadcrumbs-widget.php';
+// }
+// add_action( 'widgets_init', 'load_breadcrumbs_widget' );
+//
+// /**
+//  * Register the Breadcrumbs Widget
+//  * @return void
+//  */
+// function register_breadcrumbs_widget() {
+// 	register_widget( 'Breadcrumbs_Widget' );
+// }
+// add_action( 'widgets_init', 'register_breadcrumbs_widget' );
+//
+// require __DIR__ . '/breadcrumbs-divi.php';
