@@ -1,0 +1,4 @@
+li.breadcrumb:before {
+    content: "/";
+    margin: 0 5px; /* Adjust spacing as needed */
+}
