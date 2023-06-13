@@ -12,7 +12,7 @@ function register_breadcrumb_divi_module() {
       public $slug = 'et_pb_custom_breadcrumb';
 
       public function init() {
-        $this->name = esc_html__('Custom Breadcrumb', 'et_builder');
+        $this->name = esc_html__('Breadcrumb', 'et_builder');
         $this->whitelisted_fields = array(
           'exclude_home',
           'exclude_title',
@@ -72,7 +72,7 @@ function register_breadcrumb_divi_module() {
   }
 }
 
-// Integrate Custom Breadcrumb module with Divi Builder
+// Integrate Breadcrumb module with Divi Builder
 function integrate_breadcrumb_divi_module() {
   if (class_exists('ET_Builder_Module')) {
     global $pagenow;
@@ -85,10 +85,10 @@ function integrate_breadcrumb_divi_module() {
 add_action('et_builder_ready', 'register_breadcrumb_divi_module');
 add_action('admin_init', 'integrate_breadcrumb_divi_module');
 
-// Manually add the Custom Breadcrumb module to Divi Builder
+// Manually add the Breadcrumb module to Divi Builder
 function add_breadcrumb_divi_module($modules) {
   $modules['et_pb_custom_breadcrumb'] = array(
-    'name' => 'Custom Breadcrumb',
+    'name' => 'Breadcrumb',
     'slug' => 'et_pb_custom_breadcrumb',
     'type' => 'shortcode',
     'child_title_var' => 'title',
@@ -104,8 +104,13 @@ function add_breadcrumb_divi_module($modules) {
 }
 add_filter('et_builder_modules', 'add_breadcrumb_divi_module');
 
-// Render callback for the Custom Breadcrumb module
+// Render callback for the Breadcrumb module
 function et_pb_render_breadcrumb_divi_module($attrs, $content = null, $render_slug) {
   $module = new Breadcrumb_Divi_Module();
-  return "(preview) " . $module->shortcode_callback($attrs, $content, $render_slug);
+
+  // Generate a preview of the module output
+  $preview = $module->shortcode_callback($attrs, $content, $render_slug);
+
+  // Return the module preview
+  return et_core_esc_previously($preview);
 }
