@@ -13,13 +13,26 @@ Register [breadcrumb] shortcode for inclusion in posts or templates.
 
 == Description ==
 
-Register [breadcrumb] shortcode for inclusion in posts or templates.
+Several ways to add breadcrumbs to your pages, if your theme does not support them.
+If you theme does support breadcrumbs, you probably wouldn't want to use this plugin, as it is likely to have far less options.
+
+You can add breadcrumbs with any of these methods:
+
+* `[breadcrumb]` shortcode
+* Breadcrumb widget
+* Breadcrumb Divi Module (for Divi Themes)
+
+Here are the options for the shordcode. Other methods manage them too.
+
+* `[breadcrumb exclude-home="yes"]` do not start the breadcrumbs with home page
+* `[breadcrumb exclude-title="yes"]` do not end the breadcrumbs with the post title
+* `[breadcrumb separator="×"]` replace default "/" separator
 
 == Installation ==
 
 1. Upload `breacrumb-shortcode` folder in the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place [breacrumb] in your templates or posts
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Add `[breacrumb]` in your templates or posts
 
 == Frequently Asked Questions ==
 
