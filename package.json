@@ -1,7 +1,7 @@
 
 {
-  "name": "breadcrumb-shortcode",
-  "version": "0.1.0",
+  "name": "breadcrumbs-shortcode",
+  "version": "0.0.1",
   "main": "Gruntfile.js",
   "author": "Magiiic",
   "scripts" : {
@@ -12,6 +12,6 @@
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-wp-i18n": "~0.5.0",
-    "grunt-wp-readme-to-markdown": "~1.0.0"
+    "grunt-wp-readme-to-markdown": "~0.1.0"
   }
 }

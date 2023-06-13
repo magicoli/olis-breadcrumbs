@@ -1,15 +1,15 @@
-=== Breadcrumb Shortcode ===
+=== Breadcrumbs Shortcode ===
 Contributors: magicoli
 Donate link: https://magiiic.com/
 Tags: comments, spam
 Requires at least: 4.5
 Tested up to: 6.2.2
-Requires PHP: 7.4
-Stable tag: 0.1.0
+Requires PHP: 7.3
+Stable tag: 0.1
 License: AGPLv3 or later
 License URI: https://www.gnu.org/licenses/agpl-3.0.html
 
-Register [breadcrumb] shortcode for inclusion in posts or templates.
+Register [breadcrumbs] shortcode for inclusion in posts or templates.
 
 == Description ==
 
@@ -18,21 +18,21 @@ If you theme does support breadcrumbs, you probably wouldn't want to use this pl
 
 You can add breadcrumbs with any of these methods:
 
-* `[breadcrumb]` shortcode
-* Breadcrumb widget
-* Breadcrumb Divi Module (for Divi Themes)
+* `[breadcrumbs]` shortcode
+* Breadcrumbs widget
+* Breadcrumbs Divi Module (for Divi Themes)
 
 Here are the options for the shordcode. Other methods manage them too.
 
-* `[breadcrumb exclude-home="yes"]` do not start the breadcrumbs with home page
-* `[breadcrumb exclude-title="yes"]` do not end the breadcrumbs with the post title
-* `[breadcrumb separator="×"]` replace default "/" separator
+* `[breadcrumbs exclude-home="yes"]` do not start the breadcrumbs with home page
+* `[breadcrumbs exclude-title="yes"]` do not end the breadcrumbs with the post title
+* `[breadcrumbs separator="×"]` replace default "/" separator
 
 == Installation ==
 
-1. Upload `breacrumb-shortcode` folder in the `/wp-content/plugins/` directory
+1. Upload `breadcrumbs-shortcode` folder in the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Add `[breacrumb]` in your templates or posts
+3. Add `[breadcrumbs]` in your templates or posts
 
 == Frequently Asked Questions ==
 
@@ -46,5 +46,7 @@ Answer to foo bar dilemma.
 
 == Changelog ==
 
-= 0.0.1 =
-* Initial commit
+= 0.1 =
+* created [breadcrumbs] shortcode
+* added widget
+* added divi module
