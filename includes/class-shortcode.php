@@ -18,6 +18,7 @@ class Breadcrumbs {
 
 	public function init() {
 		add_shortcode( 'breadcrumbs', array( $this, 'breadcrumbs_shortcode' ) );
+		add_shortcode( 'olis_breadcrumbs', array( $this, 'breadcrumbs_shortcode' ) ); // make sure there is a unique shortcode
 	}
 
 	public function breadcrumbs_shortcode( $atts ) {
@@ -68,6 +69,22 @@ class Breadcrumbs {
 
 		return $breadcrumbs;
 	}
+
+	/**
+	 * Converts shortcode attributes array to a string.
+	 *
+	 * @param mixed $atts Array of attributes or empty.
+	 * @return string Attributes in string format.
+	 */
+	static function shortcode_atts_to_string($atts) {
+		$atts = (empty($atts)) ? [] : $atts;
+		$atts_string = '';
+		foreach ($atts as $key => $value) {
+			$atts_string .= ' ' . $key . '="' . $value . '"';
+		}
+		return $atts_string;
+	}
+
 }
 
 $breadcrumbs = new Breadcrumbs();

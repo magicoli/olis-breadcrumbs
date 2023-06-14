@@ -23,3 +23,6 @@ require_once __DIR__ . '/includes/class-widget.php';
 
 // Load Breadcrumbs_Divi class
 require_once __DIR__ . '/includes/class-divi.php';
+
+// Load Breadcrumbs_WPBakery class
+require_once __DIR__ . '/includes/class-wpbakery.php';
