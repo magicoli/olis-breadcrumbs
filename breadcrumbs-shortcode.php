@@ -24,88 +24,50 @@ class Breadcrumbs {
 	public function breadcrumbs_shortcode( $atts ) {
 		$atts = shortcode_atts(
 			array(
-				'exclude-home'  => 'false',
-				'exclude-title' => 'false',
+				'exclude-home'  => 'true',
+				'exclude-title' => 'true',
 				'separator'     => '/',
 			),
 			$atts
 		);
 
-		// Get the current post
-		$post = get_post();
+		$separator = ' '.$atts['separator'].' ';
+		$breadcrumbs = '';
 
-		// Check if the post exists
-		if ( $post ) {
-			$this->counter++;
-
-			$breadcrumbs = '<ul class="breadcrumbs breadcrumbs-' . $this->counter . '" style="list-style: none; display: inline;">';
-
-			// Add the home link
-			if ( $atts['exclude-home'] !== 'true' ) {
-				$breadcrumbs .= '<li class="breadcrumb-home" style="display: inline;"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home' ) . '</a></li>';
-			}
-
-			// Get the post categories
-			$categories = get_the_category( $post->ID );
-
-			$debug = [];
-			// Add the post category links if available
-			if ( $categories ) {
-				foreach ( $categories as $category ) {
-					$breadcrumbs_link  = get_category_link( $category->term_id );
-					$breadcrumbs_title = $category->name;
-					$debug[] = $category->name;
-
-					$breadcrumbs_title = esc_html( $breadcrumbs_title );
-					$li='<li class="breadcrumb-parent" style="display: inline;">';
-
-					$breadcrumbs .= $li . get_category_parents( $category->term_id, true, '</li>' . $li ) . '</li>';
-					$breadcrumbs = preg_replace(':<li[^>]*></li>:', '', $breadcrumbs);
-				}
-			}
-
-			// Add the current post title if exclude-title is true
-			if ( $atts['exclude-title'] !== 'true' ) {
-				$breadcrumbs .= '<li class="breadcrumb-title" style="display: inline;">' . esc_html( get_the_title( $post ) ) . '</li>';
-			}
-
-			$breadcrumbs .= '</ul>';
-
-			// Generate dynamic CSS for separator
-			$separator_css = sprintf(
-				'
-              #left-area ul.breadcrumbs-%1$s,
-              .entry-content ul.breadcrumbs-%1$s,
-              .et-l--body ul.breadcrumbs-%1$s,
-              .et-l--footer ul.breadcrumbs-%1$s,
-              .et-l--header ul.breadcrumbs-%1$s {
-                padding-left: 0;
-                padding-right: 0;
-              }
-              .breadcrumbs-%1$s li:not(:first-child):before {
-                content: "%2$s";
-                margin: 0 5px;
-              }',
-				$this->counter,
-				esc_attr( $atts['separator'] ),
-			);
-
-			// Register and enqueue breadcrumbs-style stylesheet
-			wp_register_style( 'breadcrumbs-style-' . $this->counter, false );
-			wp_enqueue_style( 'breadcrumbs-style-' . $this->counter );
-
-			wp_add_inline_style( 'breadcrumbs-style-' . $this->counter, $separator_css );
-
-			return $breadcrumbs;
+		if ( $atts['exclude-home'] !== 'true' ) {
+			$breadcrumbs .= '<a href="' . home_url() . '">' . esc_html__( 'Home' ) . '</a>' . $separator;
 		}
 
-		return ''; // If no post is found, return empty string
+		if ( is_single() ) {
+			$category = get_the_category();
+			$category_id = $category[0]->cat_ID;
+			$breadcrumbs .= get_category_parents( $category_id, true, $separator );
+		}
+
+		if ( $atts['exclude-title'] !== 'true' ) {
+			if ( is_single() ) {
+				$breadcrumbs .= get_the_title();
+			} elseif ( is_page() ) {
+				$breadcrumbs .= get_the_title();
+			} elseif ( is_category() ) {
+				$breadcrumbs .= single_cat_title( '', false );
+			} elseif ( is_tag() ) {
+				$breadcrumbs .= single_tag_title( '', false );
+			} elseif ( is_author() ) {
+				$breadcrumbs .= get_the_author();
+			} elseif ( is_date() ) {
+				$breadcrumbs .= get_the_date();
+			} elseif ( is_archive() ) {
+				$breadcrumbs .= __( 'Archives' );
+			}
+		}
+
+		return $breadcrumbs;
 	}
 }
 
 $breadcrumbs = new Breadcrumbs();
 add_action( 'init', array( $breadcrumbs, 'init' ) );
-
 
 // /**
 //  * Load the Breadcrumbs_Widget class
