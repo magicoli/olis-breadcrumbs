@@ -13,73 +13,15 @@
  */
 
 // Code starts here.
-class Breadcrumbs {
-	private $counter = 0;
+( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1.1' );
 
-	public function init() {
-		( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1.1');
-		add_shortcode( 'breadcrumbs', array( $this, 'breadcrumbs_shortcode' ) );
-	}
-
-	public function breadcrumbs_shortcode( $atts ) {
-		$atts = shortcode_atts(
-			array(
-				'exclude-home'     => 'false',
-				'exclude-archives' => 'false',
-				'exclude-title'    => 'false',
-				'separator'        => '/',
-			),
-			$atts
-		);
-
-		$separator   = ' ' . $atts['separator'] . ' ';
-		$breadcrumbs = '';
-
-		if ( $atts['exclude-home'] !== 'true' ) {
-			$breadcrumbs .= '<a href="' . home_url() . '">' . esc_html__( 'Home' ) . '</a>' . $separator;
-		}
-
-		if ( $atts['exclude-archives'] !== 'true' ) {
-			$breadcrumbs .= '<a href="' . get_post_type_archive_link( 'post' ) . '">' . __( 'Articles' ) . '</a>' . $separator;
-		}
-
-		if ( is_single() ) {
-			$category     = get_the_category();
-			$category_id  = $category[0]->cat_ID;
-			$breadcrumbs .= get_category_parents( $category_id, true, $separator );
-		}
-
-		if ( $atts['exclude-title'] !== 'true' ) {
-			if ( is_single() ) {
-				$breadcrumbs .= get_the_title();
-			} elseif ( is_page() ) {
-				$breadcrumbs .= get_the_title();
-			} elseif ( is_category() ) {
-				$breadcrumbs .= single_cat_title( '', false );
-			} elseif ( is_tag() ) {
-				$breadcrumbs .= single_tag_title( '', false );
-			} elseif ( is_author() ) {
-				$breadcrumbs .= get_the_author();
-			} elseif ( is_date() ) {
-				$breadcrumbs .= get_the_date();
-			} elseif ( is_archive() ) {
-				$breadcrumbs .= __( 'Archives' );
-			}
-		}
-
-		return $breadcrumbs;
-	}
-}
-
-$breadcrumbs = new Breadcrumbs();
-add_action( 'init', array( $breadcrumbs, 'init' ) );
+require_once __DIR__ . '/includes/class-shortcode.php';
 
 // /**
 // * Load the Breadcrumbs_Widget class
 // * @return void
 // */
 // function load_breadcrumbs_widget() {
-// require_once 'breadcrumbs-widget.php';
 // }
 // add_action( 'widgets_init', 'load_breadcrumbs_widget' );
 //
@@ -92,4 +34,4 @@ add_action( 'init', array( $breadcrumbs, 'init' ) );
 // }
 // add_action( 'widgets_init', 'register_breadcrumbs_widget' );
 //
-// require __DIR__ . '/breadcrumbs-divi.php';
+// require __DIR__ . '/includes/class-divi.php';
