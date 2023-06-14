@@ -1,19 +1,12 @@
 <?php
 /**
- * Plugin Name:     Breadcrumbs Shortcode
- * Plugin URI:      https://magiiic.com
- * Description:     Register [breadcrumbs] shortcode for inclusion in posts or templates.
- * Author:          Magiiic
- * Author URI:      https://magiiic.com
- * Text Domain:     breadcrumbs-shortcode
- * Domain Path:     /languages
- * Version:         0.1.2
+ * Oli's Breadcrumbs Shortcode
  *
- * @package         Breadcrumbs_Shortcode
+ * @package         Olis_Breadcrumbs_Shortcode
  */
 
 // Code starts here.
-class Breadcrumbs {
+class Olis_Breadcrumbs {
 	private $counter = 0;
 
 	public function init() {
@@ -87,5 +80,5 @@ class Breadcrumbs {
 
 }
 
-$breadcrumbs = new Breadcrumbs();
-add_action( 'init', array( $breadcrumbs, 'init' ) );
+$Olis_Breadcrumbs = new Olis_Breadcrumbs();
+add_action( 'init', array( $Olis_Breadcrumbs, 'init' ) );
