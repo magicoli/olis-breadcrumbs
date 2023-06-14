@@ -1,5 +1,8 @@
 ## Changelog
 
+### 0.1.4
+- added Divi module
+
 ### 0.1.3
 - added widget
 
