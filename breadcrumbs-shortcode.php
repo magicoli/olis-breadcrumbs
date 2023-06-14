@@ -7,7 +7,7 @@
  * Author URI:      https://magiiic.com
  * Text Domain:     breadcrumbs-shortcode
  * Domain Path:     /languages
- * Version:         0.1
+ * Version:         0.1.1
  *
  * @package         Breadcrumbs_Shortcode
  */
@@ -17,7 +17,7 @@ class Breadcrumbs {
 	private $counter = 0;
 
 	public function init() {
-		( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1' );
+		( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1.1');
 		add_shortcode( 'breadcrumbs', array( $this, 'breadcrumbs_shortcode' ) );
 	}
 
