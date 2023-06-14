@@ -7,13 +7,13 @@
  * Author URI:      https://magiiic.com
  * Text Domain:     breadcrumbs-shortcode
  * Domain Path:     /languages
- * Version:         0.1.1
+ * Version:         0.1.2
  *
  * @package         Breadcrumbs_Shortcode
  */
 
 // Code starts here.
-( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1.1' );
+( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1.2');
 
 require_once __DIR__ . '/includes/class-shortcode.php';
 
