@@ -22,12 +22,14 @@ You can add breadcrumbs with any of these methods:
 * Breadcrumbs widget
 * Breadcrumbs Divi Module (for Divi Themes)
 
-Here are the options for the shordcode. Other methods manage them too.
+Here are the options for the shordcode.
 
 * `[breadcrumbs exclude-home="true"]` do not start the breadcrumbs with home page, default false
 * `[breadcrumbs exclude-archives="true"]` do not include main articles archive link, default false
 * `[breadcrumbs exclude-title="true"]` do not end the breadcrumbs with the post title, default false
 * `[breadcrumbs separator="×"]` separator, default "/"
+
+Equivalent options are available in the widget and the Divi Module.
 
 == Installation ==
 
@@ -37,13 +39,21 @@ Here are the options for the shordcode. Other methods manage them too.
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= How can I customize the breadcrumbs' separator? =
+
+You can customize the separator by adding the `separator` attribute to the shortcode like so: `[breadcrumbs separator="×"]`. The default separator is "/" (slash).
+
+= I've activated the plugin, but I don't see the breadcrumbs. Why? =
+
+First, make sure you've added the `[breadcrumbs]` shortcode to your templates or posts. If you still can't see them, it could be due to your theme's structure. Some themes may not support this plugin out of the box.
+
+= How can I use this plugin with Divi Builder? =
+
+If you're using Divi Builder, you can use the Breadcrumbs Divi Module that comes with this plugin. The module has the same options as the shortcode.
+
+= Any other question =
 
 The answer is 42.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
 
 == Changelog ==
 
