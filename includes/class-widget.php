@@ -85,7 +85,7 @@ class Breadcrumbs_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance                  = array();
 		$instance['title']         = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
-		$instance['exclude_home']  = isset( $new_instance['exclude_archives'] ) ? $new_instance['exclude_archives'] : 'false';
+		$instance['exclude_home']  = isset( $new_instance['exclude_home'] ) ? $new_instance['exclude_home'] : 'false';
 		$instance['exclude_archives']  = isset( $new_instance['exclude_archives'] ) ? $new_instance['exclude_archives'] : 'false';
 		$instance['exclude_title'] = isset( $new_instance['exclude_title'] ) ? $new_instance['exclude_title'] : 'false';
 		$instance['separator']     = ! empty( $new_instance['separator'] ) ? sanitize_text_field( $new_instance['separator'] ) : '/';
