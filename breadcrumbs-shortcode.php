@@ -56,16 +56,13 @@ class Breadcrumbs {
 					$breadcrumbs_title = $category->name;
 					$debug[] = $category->name;
 
-					// Check if the category has parent categories
-					if ( $category->parent ) {
-						$breadcrumbs_title = get_category_parents( $category->term_id, true, '</li><li>', false ) . $breadcrumbs_title;
-					}
+					$breadcrumbs_title = esc_html( $breadcrumbs_title );
+					$li='<li class="breadcrumb-parent" style="display: inline;">';
 
-					$breadcrumbs .= '<li class="breadcrumb-parent" style="display: inline;"><a href="' . esc_url( $breadcrumbs_link ) . '">' . esc_html( $breadcrumbs_title ) . '</a></li>';
+					$breadcrumbs .= $li . get_category_parents( $category->term_id, true, '</li>' . $li ) . '</li>';
+					$breadcrumbs = preg_replace(':<li[^>]*></li>:', '', $breadcrumbs);
 				}
 			}
-
-			error_log(print_r($debug, true));
 
 			// Add the current post title if exclude-title is true
 			if ( $atts['exclude-title'] !== 'true' ) {
