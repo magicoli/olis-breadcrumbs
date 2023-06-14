@@ -17,22 +17,22 @@ class Breadcrumbs {
 	private $counter = 0;
 
 	public function init() {
-		( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1');
+		( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1' );
 		add_shortcode( 'breadcrumbs', array( $this, 'breadcrumbs_shortcode' ) );
 	}
 
 	public function breadcrumbs_shortcode( $atts ) {
 		$atts = shortcode_atts(
 			array(
-				'exclude-home'  => 'false',
-				'exclude-archives'  => 'false',
-				'exclude-title' => 'false',
-				'separator'     => '/',
+				'exclude-home'     => 'false',
+				'exclude-archives' => 'false',
+				'exclude-title'    => 'false',
+				'separator'        => '/',
 			),
 			$atts
 		);
 
-		$separator = ' '.$atts['separator'].' ';
+		$separator   = ' ' . $atts['separator'] . ' ';
 		$breadcrumbs = '';
 
 		if ( $atts['exclude-home'] !== 'true' ) {
@@ -40,12 +40,12 @@ class Breadcrumbs {
 		}
 
 		if ( $atts['exclude-archives'] !== 'true' ) {
-			$breadcrumbs .= '<a href="' . get_post_type_archive_link( 'post' ) . '">' . __('Articles') . '</a>' . $separator;
+			$breadcrumbs .= '<a href="' . get_post_type_archive_link( 'post' ) . '">' . __( 'Articles' ) . '</a>' . $separator;
 		}
 
 		if ( is_single() ) {
-			$category = get_the_category();
-			$category_id = $category[0]->cat_ID;
+			$category     = get_the_category();
+			$category_id  = $category[0]->cat_ID;
 			$breadcrumbs .= get_category_parents( $category_id, true, $separator );
 		}
 
@@ -75,20 +75,20 @@ $breadcrumbs = new Breadcrumbs();
 add_action( 'init', array( $breadcrumbs, 'init' ) );
 
 // /**
-//  * Load the Breadcrumbs_Widget class
-//  * @return void
-//  */
+// * Load the Breadcrumbs_Widget class
+// * @return void
+// */
 // function load_breadcrumbs_widget() {
-// 	require_once 'breadcrumbs-widget.php';
+// require_once 'breadcrumbs-widget.php';
 // }
 // add_action( 'widgets_init', 'load_breadcrumbs_widget' );
 //
 // /**
-//  * Register the Breadcrumbs Widget
-//  * @return void
-//  */
+// * Register the Breadcrumbs Widget
+// * @return void
+// */
 // function register_breadcrumbs_widget() {
-// 	register_widget( 'Breadcrumbs_Widget' );
+// register_widget( 'Breadcrumbs_Widget' );
 // }
 // add_action( 'widgets_init', 'register_breadcrumbs_widget' );
 //
