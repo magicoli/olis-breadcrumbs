@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     Breadcrumbs Shortcode
+ * Plugin Name:     Oli's Breadcrumbs
  * Plugin URI:      https://magiiic.com
  * Description:     Register [breadcrumbs] shortcode for inclusion in posts or templates.
  * Author:          Magiiic
@@ -9,7 +9,7 @@
  * Domain Path:     /languages
  * Version:         0.1.4
  *
- * @package         Breadcrumbs_Shortcode
+ * @package         Olis_Breadcrumbs_Shortcode
  */
 
 // Code starts here.
