@@ -24,8 +24,9 @@ class Breadcrumbs {
 	public function breadcrumbs_shortcode( $atts ) {
 		$atts = shortcode_atts(
 			array(
-				'exclude-home'  => 'true',
-				'exclude-title' => 'true',
+				'exclude-home'  => 'false',
+				'exclude-archives'  => 'false',
+				'exclude-title' => 'false',
 				'separator'     => '/',
 			),
 			$atts
@@ -36,6 +37,10 @@ class Breadcrumbs {
 
 		if ( $atts['exclude-home'] !== 'true' ) {
 			$breadcrumbs .= '<a href="' . home_url() . '">' . esc_html__( 'Home' ) . '</a>' . $separator;
+		}
+
+		if ( $atts['exclude-archives'] !== 'true' ) {
+			$breadcrumbs .= '<a href="' . get_post_type_archive_link( 'post' ) . '">' . __('Articles') . '</a>' . $separator;
 		}
 
 		if ( is_single() ) {
