@@ -20,3 +20,6 @@ require_once __DIR__ . '/includes/class-shortcode.php';
 
 // Load Breadcrumbs_Widget class
 require_once __DIR__ . '/includes/class-widget.php';
+
+// Load Breadcrumbs_Divi class
+require_once __DIR__ . '/includes/class-divi.php';
