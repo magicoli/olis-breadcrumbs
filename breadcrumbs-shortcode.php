@@ -17,21 +17,11 @@
 
 require_once __DIR__ . '/includes/class-shortcode.php';
 
-// /**
-// * Load the Breadcrumbs_Widget class
-// * @return void
-// */
-// function load_breadcrumbs_widget() {
-// }
-// add_action( 'widgets_init', 'load_breadcrumbs_widget' );
-//
-// /**
-// * Register the Breadcrumbs Widget
-// * @return void
-// */
-// function register_breadcrumbs_widget() {
-// register_widget( 'Breadcrumbs_Widget' );
-// }
-// add_action( 'widgets_init', 'register_breadcrumbs_widget' );
+/**
+ * Load the Breadcrumbs_Widget class
+ * @return void
+ */
+require_once __DIR__ . '/includes/class-widget.php';
+
 //
 // require __DIR__ . '/includes/class-divi.php';

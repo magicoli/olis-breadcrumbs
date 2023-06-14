@@ -21,10 +21,19 @@ class Breadcrumbs_Widget extends WP_Widget {
 	// Widget frontend display
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
+		$instance = array_merge(
+			array(
+				'exclude_home'     => 'false',
+				'exclude_archives' => 'false',
+				'exclude_title'    => 'false',
+				'separator'        => '/',
+			),
+			$instance
+		);
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
-		echo do_shortcode( '[breadcrumbs exclude-home="' . esc_attr( $instance['exclude_home'] ) . '" exclude-title="' . esc_attr( $instance['exclude_title'] ) . '" separator="' . esc_attr( $instance['separator'] ) . '"]' );
+		echo do_shortcode( '[breadcrumbs exclude-archives="' . esc_attr( $instance['exclude_archives'] ) . '" exclude-title="' . esc_attr( $instance['exclude_title'] ) . '" separator="' . esc_attr( $instance['separator'] ) . '"]' );
 		echo $args['after_widget'];
 	}
 
@@ -32,6 +41,7 @@ class Breadcrumbs_Widget extends WP_Widget {
 	public function form( $instance ) {
 		$title         = ! empty( $instance['title'] ) ? $instance['title'] : '';
 		$exclude_home  = isset( $instance['exclude_home'] ) ? $instance['exclude_home'] : 'false';
+		$exclude_archives  = isset( $instance['exclude_archives'] ) ? $instance['exclude_archives'] : 'false';
 		$exclude_title = isset( $instance['exclude_title'] ) ? $instance['exclude_title'] : 'false';
 		$separator     = ! empty( $instance['separator'] ) ? $instance['separator'] : '/';
 
@@ -44,6 +54,18 @@ class Breadcrumbs_Widget extends WP_Widget {
 	  <label for="<?php echo esc_attr( $this->get_field_id( 'exclude_home' ) ); ?>">
 		<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'exclude_home' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_home' ) ); ?>" value="true" <?php checked( $exclude_home, 'true' ); ?>>
 		<?php esc_html_e( 'Exclude Home', 'breadcrumbs-shortcode' ); ?>
+	  </label>
+	</p>
+	<p>
+		<label for="<?php echo esc_attr( $this->get_field_id( 'exclude_archives' ) ); ?>">
+			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'exclude_archives' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_archives' ) ); ?>" value="true" <?php checked( $exclude_archives, 'true' ); ?>>
+			<?php esc_html_e( 'Exclude archives', 'breadcrumbs-shortcode' ); ?>
+		</label>
+	</p>
+	<p>
+	  <label for="<?php echo esc_attr( $this->get_field_id( 'exclude_archives' ) ); ?>">
+		<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'exclude_archives' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_archives' ) ); ?>" value="true" <?php checked( $exclude_archives, 'true' ); ?>>
+		<?php esc_html_e( 'Exclude archives', 'breadcrumbs-shortcode' ); ?>
 	  </label>
 	</p>
 	<p>
@@ -63,10 +85,16 @@ class Breadcrumbs_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance                  = array();
 		$instance['title']         = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
-		$instance['exclude_home']  = isset( $new_instance['exclude_home'] ) ? $new_instance['exclude_home'] : 'false';
+		$instance['exclude_home']  = isset( $new_instance['exclude_archives'] ) ? $new_instance['exclude_archives'] : 'false';
+		$instance['exclude_archives']  = isset( $new_instance['exclude_archives'] ) ? $new_instance['exclude_archives'] : 'false';
 		$instance['exclude_title'] = isset( $new_instance['exclude_title'] ) ? $new_instance['exclude_title'] : 'false';
 		$instance['separator']     = ! empty( $new_instance['separator'] ) ? sanitize_text_field( $new_instance['separator'] ) : '/';
 		return $instance;
 	}
 
 }
+
+function load_breadcrumbs_widget() {
+	register_widget( 'Breadcrumbs_Widget' );
+}
+add_action( 'widgets_init', 'load_breadcrumbs_widget' );
