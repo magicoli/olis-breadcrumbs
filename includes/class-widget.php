@@ -1,17 +1,19 @@
 <?php
 /**
- * Breadcrumbs Widget
+ * Oli's Breadcrumbs Widget
  *
- * @package         Breadcrumbs_Shortcode
+ * Register a widget to display Oli's Breadcrumbs with the same parameters as the shortcode.
+ *
+ * @package         Olis_Breadcrumbs_Shortcode
  */
 
 // Codde begin
-class Breadcrumbs_Widget extends WP_Widget {
+class Olis_Breadcrumbs_Widget extends WP_Widget {
 	// Constructor
 	public function __construct() {
 		parent::__construct(
 			'breadcrumbs_widget',
-			esc_html__( 'Breadcrumbs Widget', 'breadcrumbs-shortcode' ),
+			esc_html__( "Oli's Breadcrumbs", 'breadcrumbs-shortcode' ),
 			array(
 				'description' => esc_html__( 'Display breadcrumbs using shortcode.', 'breadcrumbs-shortcode' ),
 			)
@@ -63,12 +65,6 @@ class Breadcrumbs_Widget extends WP_Widget {
 		</label>
 	</p>
 	<p>
-	  <label for="<?php echo esc_attr( $this->get_field_id( 'exclude_archives' ) ); ?>">
-		<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'exclude_archives' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_archives' ) ); ?>" value="true" <?php checked( $exclude_archives, 'true' ); ?>>
-		<?php esc_html_e( 'Exclude archives', 'breadcrumbs-shortcode' ); ?>
-	  </label>
-	</p>
-	<p>
 	  <label for="<?php echo esc_attr( $this->get_field_id( 'exclude_title' ) ); ?>">
 		<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'exclude_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_title' ) ); ?>" value="true" <?php checked( $exclude_title, 'true' ); ?>>
 		<?php esc_html_e( 'Exclude Title', 'breadcrumbs-shortcode' ); ?>
@@ -94,7 +90,7 @@ class Breadcrumbs_Widget extends WP_Widget {
 
 }
 
-function load_breadcrumbs_widget() {
-	register_widget( 'Breadcrumbs_Widget' );
+function olis_breadcrumbs_load_widget() {
+	register_widget( 'Olis_Breadcrumbs_Widget' );
 }
-add_action( 'widgets_init', 'load_breadcrumbs_widget' );
+add_action( 'widgets_init', 'olis_breadcrumbs_load_widget' );
