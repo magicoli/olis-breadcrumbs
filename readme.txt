@@ -5,7 +5,7 @@ Tags: comments, spam
 Requires at least: 4.5
 Tested up to: 6.2.2
 Requires PHP: 5.7
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 License: AGPLv3 or later
 License URI: https://www.gnu.org/licenses/agpl-3.0.html
 
@@ -46,6 +46,9 @@ The answer is 42.
 Answer to foo bar dilemma.
 
 == Changelog ==
+
+= 0.1.3 =
+* added widget
 
 = 0.1.2 =
 * reorganized files

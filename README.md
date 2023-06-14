@@ -20,9 +20,10 @@ You can add breadcrumbs with any of these methods:
 
 Here are the options for the shordcode. Other methods manage them too.
 
-- `[breadcrumbs exclude-home="yes"]` do not start the breadcrumbs with home page
-- `[breadcrumbs exclude-title="yes"]` do not end the breadcrumbs with the post title
-- `[breadcrumbs separator="×"]` replace default "/" separator
+- `[breadcrumbs exclude-home="true"]` do not start the breadcrumbs with home page, default false
+- `[breadcrumbs exclude-archives="true"]` do not include main articles archive link, default false
+- `[breadcrumbs exclude-title="true"]` do not end the breadcrumbs with the post title, default false
+- `[breadcrumbs separator="×"]` separator, default "/"
 
 ## Frequently Asked Questions
 
