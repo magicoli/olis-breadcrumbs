@@ -13,7 +13,7 @@
  */
 
 // Code starts here.
-( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1.4');
+( ! defined( 'BREADCRUMB_VERSION' ) ) && define( 'BREADCRUMB_VERSION', '0.1.4' );
 
 // Load Breadcrumbs class
 require_once __DIR__ . '/includes/class-shortcode.php';

@@ -41,11 +41,11 @@ class Olis_Breadcrumbs_Widget extends WP_Widget {
 
 	// Widget backend settings form
 	public function form( $instance ) {
-		$title         = ! empty( $instance['title'] ) ? $instance['title'] : '';
-		$exclude_home  = isset( $instance['exclude_home'] ) ? $instance['exclude_home'] : 'false';
-		$exclude_archives  = isset( $instance['exclude_archives'] ) ? $instance['exclude_archives'] : 'false';
-		$exclude_title = isset( $instance['exclude_title'] ) ? $instance['exclude_title'] : 'false';
-		$separator     = ! empty( $instance['separator'] ) ? $instance['separator'] : '/';
+		$title            = ! empty( $instance['title'] ) ? $instance['title'] : '';
+		$exclude_home     = isset( $instance['exclude_home'] ) ? $instance['exclude_home'] : 'false';
+		$exclude_archives = isset( $instance['exclude_archives'] ) ? $instance['exclude_archives'] : 'false';
+		$exclude_title    = isset( $instance['exclude_title'] ) ? $instance['exclude_title'] : 'false';
+		$separator        = ! empty( $instance['separator'] ) ? $instance['separator'] : '/';
 
 		?>
 	<p>
@@ -79,12 +79,12 @@ class Olis_Breadcrumbs_Widget extends WP_Widget {
 
 	// Update widget settings
 	public function update( $new_instance, $old_instance ) {
-		$instance                  = array();
-		$instance['title']         = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
-		$instance['exclude_home']  = isset( $new_instance['exclude_home'] ) ? $new_instance['exclude_home'] : 'false';
-		$instance['exclude_archives']  = isset( $new_instance['exclude_archives'] ) ? $new_instance['exclude_archives'] : 'false';
-		$instance['exclude_title'] = isset( $new_instance['exclude_title'] ) ? $new_instance['exclude_title'] : 'false';
-		$instance['separator']     = ! empty( $new_instance['separator'] ) ? sanitize_text_field( $new_instance['separator'] ) : '/';
+		$instance                     = array();
+		$instance['title']            = ! empty( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['exclude_home']     = isset( $new_instance['exclude_home'] ) ? $new_instance['exclude_home'] : 'false';
+		$instance['exclude_archives'] = isset( $new_instance['exclude_archives'] ) ? $new_instance['exclude_archives'] : 'false';
+		$instance['exclude_title']    = isset( $new_instance['exclude_title'] ) ? $new_instance['exclude_title'] : 'false';
+		$instance['separator']        = ! empty( $new_instance['separator'] ) ? sanitize_text_field( $new_instance['separator'] ) : '/';
 		return $instance;
 	}
 

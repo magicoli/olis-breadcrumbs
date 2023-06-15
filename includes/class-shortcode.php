@@ -69,10 +69,10 @@ class Olis_Breadcrumbs {
 	 * @param mixed $atts Array of attributes or empty.
 	 * @return string Attributes in string format.
 	 */
-	static function shortcode_atts_to_string($atts) {
-		$atts = (empty($atts)) ? [] : $atts;
+	static function shortcode_atts_to_string( $atts ) {
+		$atts        = ( empty( $atts ) ) ? array() : $atts;
 		$atts_string = '';
-		foreach ($atts as $key => $value) {
+		foreach ( $atts as $key => $value ) {
 			$atts_string .= ' ' . $key . '="' . $value . '"';
 		}
 		return $atts_string;

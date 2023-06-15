@@ -26,7 +26,7 @@ function register_breadcrumbs_divi_module() {
 
 			public function get_fields() {
 				return array(
-					'exclude_home'  => array(
+					'exclude_home'     => array(
 						'label'           => esc_html__( 'Exclude Home', 'breadcrumbs-shortcode' ),
 						'type'            => 'yes_no_button',
 						'options'         => array(
@@ -37,7 +37,7 @@ function register_breadcrumbs_divi_module() {
 						'description'     => esc_html__( 'Exclude the home link from the breadcrumbs.', 'breadcrumbs-shortcode' ),
 						'default'         => 'off',
 					),
-					'exclude_archives'  => array(
+					'exclude_archives' => array(
 						'label'           => esc_html__( 'Exclude Archives', 'breadcrumbs-shortcode' ),
 						'type'            => 'yes_no_button',
 						'options'         => array(
@@ -48,7 +48,7 @@ function register_breadcrumbs_divi_module() {
 						'description'     => esc_html__( 'Exclude the archives link from the breadcrumbs.', 'breadcrumbs-shortcode' ),
 						'default'         => 'off',
 					),
-					'exclude_title' => array(
+					'exclude_title'    => array(
 						'label'           => esc_html__( 'Exclude Title', 'breadcrumbs-shortcode' ),
 						'type'            => 'yes_no_button',
 						'options'         => array(
@@ -59,7 +59,7 @@ function register_breadcrumbs_divi_module() {
 						'description'     => esc_html__( 'Exclude the post title from the breadcrumbs.', 'breadcrumbs-shortcode' ),
 						'default'         => 'off',
 					),
-					'separator'     => array(
+					'separator'        => array(
 						'label'           => esc_html__( 'Separator', 'breadcrumbs-shortcode' ),
 						'type'            => 'text',
 						'option_category' => 'configuration',
@@ -70,19 +70,19 @@ function register_breadcrumbs_divi_module() {
 			}
 
 			public function shortcode_callback( $atts, $content = null, $function_name ) {
-				$exclude_home  = $this->shortcode_atts['exclude_home'] === 'on';
-				$exclude_archives  = $this->shortcode_atts['exclude_archives'] === 'on';
-				$exclude_title = $this->shortcode_atts['exclude_title'] === 'on';
-				$separator     = $this->shortcode_atts['separator'];
+				$exclude_home     = $this->shortcode_atts['exclude_home'] === 'on';
+				$exclude_archives = $this->shortcode_atts['exclude_archives'] === 'on';
+				$exclude_title    = $this->shortcode_atts['exclude_title'] === 'on';
+				$separator        = $this->shortcode_atts['separator'];
 
 				// Process the [breadcrumbs] shortcode with the specified options
 				$breadcrumbs = do_shortcode( '[breadcrumbs exclude-home="' . ( $exclude_home ? 'true' : 'false' ) . '" exclude-archives="' . ( $exclude_archives ? 'true' : 'false' ) . '" exclude-title="' . ( $exclude_title ? 'true' : 'false' ) . '" separator="' . esc_attr( $separator ) . '"]' );
 
 				$output = sprintf(
-		        '<div class="%1$s">%2$s</div>',
-		        esc_attr( 'et_pb_module et_pb_breadcrumbs' ),
-		        $breadcrumbs
-		    );
+					'<div class="%1$s">%2$s</div>',
+					esc_attr( 'et_pb_module et_pb_breadcrumbs' ),
+					$breadcrumbs
+				);
 
 				return $output;
 			}
