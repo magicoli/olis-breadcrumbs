@@ -9,12 +9,12 @@ Stable tag: 0.1.5
 License: AGPLv3 or later
 License URI: https://www.gnu.org/licenses/agpl-3.0.html
 
-Register [breadcrumbs] shortcode for inclusion in posts or templates.
+Add configurable breadcrumbs via shortcode, widget, Divi module or WPBakery element.
 
 == Description ==
 
 Several ways to add breadcrumbs to your pages, if your theme does not support them.
-If you theme does support breadcrumbs, you probably wouldn't want to use this plugin, as it is likely to have far less options.
+If you theme already supports breadcrumbs, you probably don't need this plugin, as it is likely to have less options.
 
 You can add breadcrumbs with any of these methods:
 

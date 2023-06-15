@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Oli's Breadcrumbs
  * Plugin URI:      https://magiiic.com
- * Description:     Register [breadcrumbs] shortcode for inclusion in posts or templates.
+ * Description:     Add configurable breadcrumbs via shortcode, widget, Divi module or WPBakery element.
  * Author:          Magiiic
  * Author URI:      https://magiiic.com
  * Text Domain:     breadcrumbs-shortcode

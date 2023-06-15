@@ -5,12 +5,12 @@
 ![Requires PHP 5.7](https://badgen.net/badge/PHP/5.7/7884bf)
 ![License AGPLv3 or later](https://badgen.net/badge/License/AGPLv3%20or%20later/552b55)
 
-Register [breadcrumbs] shortcode for inclusion in posts or templates.
+Add configurable breadcrumbs via shortcode, widget, Divi module or WPBakery element.
 
 ## Description
 
 Several ways to add breadcrumbs to your pages, if your theme does not support them.
-If you theme does support breadcrumbs, you probably wouldn't want to use this plugin, as it is likely to have far less options.
+If you theme already supports breadcrumbs, you probably don't need this plugin, as it is likely to have less options.
 
 You can add breadcrumbs with any of these methods:
 
