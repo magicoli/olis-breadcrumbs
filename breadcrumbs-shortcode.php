@@ -26,3 +26,6 @@ require_once __DIR__ . '/includes/class-divi.php';
 
 // Load Breadcrumbs_WPBakery class
 require_once __DIR__ . '/includes/class-wpbakery.php';
+
+// Run database updates
+require_once __DIR__ . '/includes/db_updates.php';
