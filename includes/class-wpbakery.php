@@ -5,8 +5,9 @@
  * @package Breadcrumbs_Shortcode
  */
 
-class Breadcrumbs_WPBakery {
- 	public function init() {
+class Olis_Breadcrumbs_WPBakery {
+
+ 	public function __construct() {
  		add_action( 'plugins_loaded', array( $this, 'load_after_plugins' ) );
  	}
 
@@ -61,7 +62,7 @@ class Breadcrumbs_WPBakery {
 
 	public function olis_breadcrumbs_wpb_shortcode( $atts ) {
 	    // Create breadcrumbs using the Breadcrumbs class via a shortcode
-	    $breadcrumbs = do_shortcode( '[breadcrumbs ' . Breadcrumbs::shortcode_atts_to_string($atts) . ']' );
+	    $breadcrumbs = do_shortcode( '[olis_breadcrumbs ' . Olis_Breadcrumbs::shortcode_atts_to_string($atts) . ']' );
 
 	    // Wrap the breadcrumbs with the div
 	    $output = '<div class="vc_column-inner ' . esc_attr( apply_filters( 'vc_shortcodes_css_class', 'wpb_wrapper', 'olis_breadcrumbs_wpb' ) ) . '">';
@@ -73,5 +74,5 @@ class Breadcrumbs_WPBakery {
 
 }
 
-$breadcrumbs_wpbakery = new Breadcrumbs_WPBakery();
-$breadcrumbs_wpbakery->init();
+$olis_breadcrumbs_wpbakery = new Olis_Breadcrumbs_WPBakery();
+// $olis_breadcrumbs_wpbakery->init();
