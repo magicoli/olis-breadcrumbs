@@ -1,6 +1,6 @@
-# Breadcrumbs Shortcode
+# Oli's Breadcrumbs
 
-![Stable 0.1.3](https://badgen.net/badge/Stable/0.1.3/00aa00)
+![Stable 0.1.5](https://badgen.net/badge/Stable/0.1.5/00aa00)
 ![WordPress 4.5 - 6.2.2](https://badgen.net/badge/WordPress/4.5%20-%206.2.2/3858e9)
 ![Requires PHP 5.7](https://badgen.net/badge/PHP/5.7/7884bf)
 ![License AGPLv3 or later](https://badgen.net/badge/License/AGPLv3%20or%20later/552b55)
@@ -16,7 +16,8 @@ You can add breadcrumbs with any of these methods:
 
 - `[breadcrumbs]` shortcode
 - Breadcrumbs widget
-- Breadcrumbs Divi Module (for Divi Themes)
+- Breadcrumbs Divi Module (for Divi Themes or with Divi plugin)
+- Breadcrumbs Element WPBakery Page Builder (aka js_composer aka Visual Composer)
 
 Here are the options for the shordcode.
 

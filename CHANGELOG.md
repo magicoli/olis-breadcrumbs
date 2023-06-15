@@ -1,5 +1,9 @@
 ## Changelog
 
+### 0.1.5
+- added Olis_Breadcrumbs_Updates class and db update procedure
+- added WPBakery elements support
+
 ### 0.1.4
 - added Divi module
 
