@@ -35,7 +35,7 @@ class Olis_Breadcrumbs_Widget extends WP_Widget {
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
-		echo do_shortcode( '[breadcrumbs exclude-archives="' . esc_attr( $instance['exclude_archives'] ) . '" exclude-title="' . esc_attr( $instance['exclude_title'] ) . '" separator="' . esc_attr( $instance['separator'] ) . '"]' );
+		echo do_shortcode( '[olis_breadcrumbs exclude-archives="' . esc_attr( $instance['exclude_archives'] ) . '" exclude-title="' . esc_attr( $instance['exclude_title'] ) . '" separator="' . esc_attr( $instance['separator'] ) . '"]' );
 		echo $args['after_widget'];
 	}
 
@@ -61,7 +61,7 @@ class Olis_Breadcrumbs_Widget extends WP_Widget {
 	<p>
 		<label for="<?php echo esc_attr( $this->get_field_id( 'exclude_archives' ) ); ?>">
 			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'exclude_archives' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_archives' ) ); ?>" value="true" <?php checked( $exclude_archives, 'true' ); ?>>
-			<?php esc_html_e( 'Exclude archives', 'breadcrumbs-shortcode' ); ?>
+			<?php esc_html_e( 'Exclude Archives', 'breadcrumbs-shortcode' ); ?>
 		</label>
 	</p>
 	<p>
