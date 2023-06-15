@@ -5,7 +5,7 @@ Tags: comments, spam
 Requires at least: 4.5
 Tested up to: 6.2.2
 Requires PHP: 5.7
-Stable tag: 0.1.5
+Stable tag: 1.0
 License: AGPLv3 or later
 License URI: https://www.gnu.org/licenses/agpl-3.0.html
 
@@ -57,6 +57,10 @@ If you're using Divi Builder, you can use the Breadcrumbs Divi Module that comes
 The answer is 42.
 
 == Changelog ==
+
+= 1.0 =
+* new plugin final slug is olis-breadcrumbs
+* updated short description and readme
 
 = 0.1.5 =
 * added Olis_Breadcrumbs_Updates class and db update procedure

@@ -1,5 +1,9 @@
 ## Changelog
 
+### 1.0
+- new plugin final slug is olis-breadcrumbs
+- updated short description and readme
+
 ### 0.1.5
 - added Olis_Breadcrumbs_Updates class and db update procedure
 - added WPBakery elements support
