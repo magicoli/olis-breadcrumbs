@@ -63,46 +63,55 @@ class Olis_Breadcrumbs_Updates {
 		echo '</div>';
 	}
 
-	private function update_1() {
-		global $wpdb;
-		$old_slug = 'et_pb_custom_breadcrumbs';
-		$new_slug = 'et_pb_olis_breadcrumbs';
-
-		// Update the post content and check if the query succeeded
-		$content_query = $wpdb->query(
-			$wpdb->prepare(
-				"UPDATE $wpdb->posts SET post_content = REPLACE(post_content, %s, %s)",
-				$old_slug,
-				$new_slug
-			)
-		);
-		if ( $content_query === false ) {
-			// Display an error message but proceed as success
-			$this->warnings++;
-			$this->update_messages[] = __( "Error while updating Oli's Breadcrumbs Divi module in posts content. Please review posts using this module.", 'breadcrumbs-shortcode' );
-		}
-
-		// Update the post meta
-		$meta_query = $wpdb->query(
-			$wpdb->prepare(
-				"UPDATE $wpdb->postmeta SET meta_value = REPLACE(meta_value, %s, %s) WHERE meta_key = '_et_pb_use_builder'",
-				$old_slug,
-				$new_slug
-			)
-		);
-
-		// Check if the second query succeeded
-		if ( $meta_query === false ) {
-			// Display an error message but proceed as success
-			$this->warnings++;
-			$this->update_messages[] = __( "Error while updating Oli's Breadcrumbs Divi module meta. Please review posts using this module.", 'breadcrumbs-shortcode' );
-		} else {
-			// Display a success message
-			$this->update_messages[] = __( "Oli's Breadcrumbs Divi module updated successfully.", 'breadcrumbs-shortcode' );
-		}
-
-		return true;
-	}
+	/**
+	 * Add as many update_n() methods as needed.
+	 *
+	 *    - n must be integer and incremnetal, starting at 1.
+	 *    - there must be no gap.
+	 *    - once update_x has been published, the method can't be removed nor be
+	 *      replaced with another update process. But if needed it can be left
+	 *      empty and return a boolean true.
+	 *
+	 * Each method will be executed only once, and the last successful update will
+	 * be stored as db version. At the next check, the update class will start
+	 * checking at db version + 1.
+	 *
+	 * The update method must return true or false.
+	 *
+	 * @return boolean      Update result:
+	 *                      - true saves the update number and process remaning
+	 *                        updates.
+	 *                      - false stops the update process. The failed
+	 *                        update will be tried again at next check.
+	 */
+	// private function update_1() {
+	//
+	// * Update code */
+	//
+	// * Report and return success or failure */
+	// if ( $error ) {
+	// * Display an error notice and return false, */
+	// * This will break the update process, this update will be tried again next time. */
+	// $this->update_messages[] = __( "There was an error ___ during the update of ____, upcoming no other updates will be processed until this is fixed.", 'breadcrumbs-shortcode' );
+	// return false;
+	// } else if ( $warning ) {
+	// * Display a warning notice, but keep processing updates. */
+	// $this->warnings++;
+	// $this->update_messages[] = __( "Warning. This happened and won't block other update but you should have a look and check.", 'breadcrumbs-shortcode' );
+	// } else {
+	// * Display success notice and keep processing. */
+	// $this->update_messages[] = __( "The ___ and ____ were updated successfully.", 'breadcrumbs-shortcode' );
+	// }
+	//
+	// return true;
+	// }
+	//
+	// private function update_2() {
+	//
+	// Update code
+	//
+	// return $result;
+	// }
 
 }
 
